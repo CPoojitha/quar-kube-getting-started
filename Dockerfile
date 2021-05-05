@@ -1,9 +1,10 @@
+
      ####
 # This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
 #
 # Before building the container image run:
 #
-#/./mvnw package
+# ./mvnw package
 #
 # Then, build the image with:
 #
