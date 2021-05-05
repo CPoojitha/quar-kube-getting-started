@@ -92,11 +92,11 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
  
   stages {
     
-     stage('Build: quarkus'){
+     /*stage('Build: quarkus'){
        steps{
          sh 'mvn -Dmaven.test.failure.ignore=true clean package'
                }
-               }
+               }*/
        
         stage ('Build: Docker') {
             steps {
