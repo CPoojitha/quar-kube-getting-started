@@ -3,11 +3,11 @@
 #
 # Before building the container image run:
 #
- ./mvnw package
+ #./mvnw package
 #
 # Then, build the image with:
 #
- docker build -f src/main/docker/Dockerfile.jvm -t quarkus/quarkus-getting-started-jvm .
+# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/quarkus-getting-started-jvm .
 #
 # Then run the container using:
 #
@@ -39,6 +39,7 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
     && chown 1001 /deployments/run-java.sh \
     && chmod 540 /deployments/run-java.sh \
     && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security
+    RUN mvnw -Dmaven.test.failure.ignore=true clean package
 
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
